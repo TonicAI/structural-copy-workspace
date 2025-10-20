@@ -1,0 +1,28 @@
+name: Copy Workspace
+description: Copies a Structural workspace
+author: Tonic AI
+branding:
+  icon: copy
+  color: blue
+inputs:
+  structural-url:
+    description: Structural API base URL
+    required: false
+    default: 'https://app.tonic.ai'
+  structural-api-key:
+    description: Structural API key for authentication
+    required: true
+  workspace-to-copy-id:
+    description: The workspace ID (GUID) to copy
+    required: true
+  workspace-name:
+    description: Name for the copied workspace
+    required: true
+outputs:
+  id:
+    description: The ID of the copied workspace
+  link:
+    description: Link to the copied workspace
+runs:
+  using: node20
+  main: dist/index.js

@@ -1,0 +1,23 @@
+{
+  "name": "structural-copy-workspace",
+  "version": "1.0.0",
+  "description": "Copy Structural workspace GitHub Action",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build index.js -o dist --license licenses.txt"
+  },
+  "keywords": [
+    "github-action",
+    "structural",
+    "tonic",
+    "workspace"
+  ],
+  "author": "Tonic AI",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.1"
+  }
+}
