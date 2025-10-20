@@ -4,10 +4,12 @@ This action copies a Structural workspace and returns the new workspace ID and l
 
 ## Inputs
 
-- `structural-url` (optional): Structural API base URL, defaults to 'https://app.tonic.ai'
-- `structural-api-key` (required): Structural API key for authentication
-- `workspace-to-copy-id` (required): The workspace ID (GUID) to copy
-- `workspace-name` (required): Name for the copied workspace
+| Input | Description | Required | Default |
+|-------|-------------|----------|---------|
+| `structural-url` | Structural API base URL | No | `https://app.tonic.ai` |
+| `structural-api-key` | Structural API key for authentication | Yes | |
+| `workspace-to-copy-id` | The workspace ID (GUID) to copy | Yes | |
+| `workspace-name` | Name for the copied workspace | Yes | |
 
 ## Outputs
 
@@ -35,6 +37,24 @@ jobs:
           echo "Workspace link: ${{ steps.copy-workspace.outputs.link }}"
 ```
 
-## License
+## Development
 
-MIT
+### Setup
+```bash
+npm install
+```
+
+### Build
+```bash
+npm run package
+```
+
+This will compile the action into a single file in the `dist` folder using `@vercel/ncc`.
+
+## Publishing
+
+Before publishing, make sure to:
+1. Build the action: `npm run package`
+2. Commit the `dist` folder to the repository
+3. Tag your release: `git tag -a v1 -m "Release v1"`
+4. Push the tag: `git push origin v1`

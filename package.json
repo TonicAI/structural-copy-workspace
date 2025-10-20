@@ -4,14 +4,8 @@
   "description": "Copy Structural workspace GitHub Action",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build index.js -o dist --license licenses.txt"
+    "package": "ncc build index.js -o dist"
   },
-  "keywords": [
-    "github-action",
-    "structural",
-    "tonic",
-    "workspace"
-  ],
   "author": "Tonic AI",
   "license": "MIT",
   "dependencies": {
