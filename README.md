@@ -1,43 +1,43 @@
-# Copy Workspace
+# Copy workspace
 
-This action copies a Structural workspace and returns the new workspace ID and link.
+This action copies a Structural workspace. It returns the identifier of and link to the new workspace.
 
 ## Inputs
 
 | Input | Description | Required | Default |
 |-------|-------------|----------|---------|
-| `structural-url` | Structural API base URL | No | `https://app.tonic.ai` |
+| `structural-url` | Base URL for the Structural API | No | `https://app.tonic.ai` |
 | `structural-api-key` | Structural API key for authentication | Yes | |
-| `workspace-to-copy-id` | The workspace ID (GUID) to copy | Yes | |
-| `workspace-name` | Name for the copied workspace | Yes | |
+| `workspace-to-copy-id` | The identifier (GUID) of the workspace to copy | Yes | |
+| `workspace-name` | The name to give to the copied workspace | Yes | |
 
 ## Outputs
 
-- `id`: The ID of the copied workspace
-- `link`: Link to the copied workspace
+- `id`: The identifier of the copied workspace
+- `link`: A link to the copied workspace
 
-## Example Usage
+## Example usage
 
 ```yaml
 jobs:
   copy-workspace:
     runs-on: ubuntu-latest
     steps:
-      - name: Copy Workspace
+      - name: Copy workspace
         id: copy-workspace
         uses: TonicAI/structural-copy-workspace@v1
         with:
           structural-api-key: ${{ secrets.STRUCTURAL_API_KEY }}
           workspace-to-copy-id: ${{ secrets.STRUCTURAL_WORKSPACE_ID }}
-          workspace-name: 'My Copied Workspace'
+          workspace-name: 'My copied workspace'
 
-      - name: Print Workspace Info
+      - name: Print workspace information
         run: |
           echo "Copied workspace ID: ${{ steps.copy-workspace.outputs.id }}"
           echo "Workspace link: ${{ steps.copy-workspace.outputs.link }}"
 ```
 
-## Development
+## Develop
 
 ### Setup
 ```bash
@@ -49,11 +49,11 @@ npm install
 npm run package
 ```
 
-This will compile the action into a single file in the `dist` folder using `@vercel/ncc`.
+This uses `@vercel/ncc` to compile the action into a single file in the `dist` folder.
 
-## Publishing
+## Publish
 
-Before publishing, make sure to:
+Before you publish, make sure to:
 1. Build the action: `npm run package`
 2. Commit the `dist` folder to the repository
 3. Tag your release: `git tag -a v1 -m "Release v1"`
