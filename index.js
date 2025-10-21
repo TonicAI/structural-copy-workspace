@@ -45,6 +45,8 @@ async function run() {
     const payload = {
       copyName: workspaceName,
     };
+
+    const version = require('./package.json').version;
     
     const options = {
       hostname: url.hostname,
@@ -53,7 +55,10 @@ async function run() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `apikey ${apiKey}`
+        'Authorization': `apikey ${apiKey}`,
+        'User-Agent': 'Tonic-Github-Action',
+        'X-GitHub-Action': 'copy-workspace',
+        'X-GitHub-Action-Version': version
       }
     };
     
