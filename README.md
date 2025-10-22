@@ -1,4 +1,4 @@
-# Copy workspace
+# Copy Structural workspace
 
 This action copies a Structural workspace. It returns the identifier of and link to the new workspace.
 
